@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+
+    "name": "Newstock",
+    "description": "Get stock data from news",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "https://*.naver.com/*"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [{
+        "matches": [
+            "https://*.naver.com/*"
+        ],
+        "js": ["jquery-3.4.1.min.js", "content.js"]
+    }]
+
+}
