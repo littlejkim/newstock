@@ -39,11 +39,6 @@ function parseStringToDate(datetime) {
 //   });
 
 
-
-
-
-
-
 //선택된 텍스트로 nametoCode실행. 실행후 코드가 나오면(선택된 텍스트가 valid면) sendMessage. 실행후 코드가 안나오면(선택된 텍스트가 invalid면) 아무것도 안함. 
 document.addEventListener("click", function(){
     var selection = window.getSelection().toString();
