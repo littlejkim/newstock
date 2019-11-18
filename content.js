@@ -28,7 +28,8 @@ function parseStringToDate(datetime) {
     }
 
     // 날짜 반환
-    return new Date(year + "-" + month + "-" + day + " " + hour + ":" + minute).toLocaleString("en-US")
+    //return (year + "-" + month + "-" + day + " " + hour + ":" + minute + (isPm == true ? "PM" : "AM")).toLocaleString("en-US")
+    return (year + "." + month + "." + day)
 
 }
 
@@ -37,13 +38,11 @@ function parseStringToDate(datetime) {
 // chrome.runtime.sendMessage({code: "005930"}, function(response) {
 //     console.log(response.data);
 //   });
-
-
-//선택된 텍스트로 nametoCode실행. 실행후 코드가 나오면(선택된 텍스트가 valid면) sendMessage. 실행후 코드가 안나오면(선택된 텍스트가 invalid면) 아무것도 안함. 
 document.addEventListener("click", function () {
     var selection = window.getSelection().toString();
     console.log("Double clicked")
     var parsedDate = parseStringToDate(datetime)
+    console.log(parsedDate)
     chrome.runtime.sendMessage({
         name: selection,
         date: parsedDate
