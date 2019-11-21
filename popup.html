@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="UTF-8" />
+        <script src= "content.js"></script>
+        <script  src= "popup.js"></script>
+        <style>
+          body {
+            width: 400px;
+            height:200px;
+          }
+
+          h3, h4 {
+            padding: 1px;
+            margin: 1px;
+            border: 1px;
+            text-align: center;
+            color: whitesmoke;
+          }
+    
+          table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0px;
+            
+          }
+
+          td {
+            border: 1px solid #1a1a1a;
+            text-align: left;
+            padding: 1px;
+            color: gray
+          }
+
+
+          div {
+          	font-family: sans-serif;
+            font-size: 100%;
+            border: 1px;
+            padding: 1px;
+            margin: 1px;
+            color: gray;
+          }
+
+          p {
+          	padding: 3px;
+            text-align: center;
+            font-size: 150%;
+            margin: 1px;
+            border: 1px;
+            color: whitesmoke;
+          }
+
+          tr:nth-child(even) {
+            background-color: #1a1a1a;
+          }
+
+        </style>
+      </head>
+      
+      <body style="background-color: #0a0a0a;">
+
+        <h3 id="compName"></h3>
+        <h4 id="date"></h4>
+        <table>
+
+          <tr>
+            <td>
+              <div class="category">종가</div>
+                <p id="closingPrice"></p>
+            </td>
+            <td>
+              <div class="category">시가</div>
+                <p id="sikka"></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="category">고가</div>
+                <p id="highPrice"></p>
+            </td>
+            <td>
+              <div class="category">전일비</div>
+                <p id="comparedValue"></p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="category">저가</div>
+                <p id="lowPrice"></p>
+            </td>
+            <td>
+              <div class="category">거래량</div>
+                <p id="tradedAmount"></p>
+            </td>
+          </tr>
+
+        </table>
+        
+      </body> 
+</html>

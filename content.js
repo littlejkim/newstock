@@ -33,21 +33,48 @@ function parseStringToDate(datetime) {
 
 }
 
-// console.log(parseStringToDate(datetime))
 
-// chrome.runtime.sendMessage({code: "005930"}, function(response) {
+
+// chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+//     var selection = window.getSelection().toString();
+//     console.log(selection);
+//     var parsedDate = parseStringToDate(datetime);
+//     console.log(parsedDate);
+
+//     chrome.runtime.sendMessage({
+//         name: selection,
+//         date: parsedDate
+//     }, function (response) {
 //     console.log(response.data);
+//     sendResponse(response.data)
+//     });
+
 //   });
+
+
 document.addEventListener("click", function () {
+    
     var selection = window.getSelection().toString();
     console.log("Double clicked")
     var parsedDate = parseStringToDate(datetime)
     console.log(parsedDate)
+    console.log(selection)
     chrome.runtime.sendMessage({
         name: selection,
-        date: parsedDate
+        date: parsedDate,
+        origin: "content"
     }, function (response) {
         console.log(response.data);
+
+        chrome.runtime.onMessage.addListener(function contentToPopup(message,sender,sendResponse){
+            
+            response["date"] = parsedDate;
+            response["name"] = selection;
+            sendResponse(response);
+            chrome.runtime.onMessage.removeListener(contentToPopup);
+        });
+        
     });
 });
-//
+
+
