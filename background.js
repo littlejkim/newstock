@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(
         
             var result = xhr.responseText;
             sendResponse({
-                data: result
+                data: result,
             });
         }
     });

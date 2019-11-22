@@ -70,6 +70,7 @@ document.addEventListener("click", function () {
             
             response["date"] = parsedDate;
             response["name"] = selection;
+            
             sendResponse(response);
             chrome.runtime.onMessage.removeListener(contentToPopup);
         });

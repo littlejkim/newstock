@@ -5,7 +5,7 @@ chrome.tabs.query({'active': true,'currentWindow':true},function(tab){
       
       console.log(response)
       
-
+      var compCode = jsondata[0].code
       var compName = ""
       var date = ""
       var closingPrice = ""
@@ -14,6 +14,8 @@ chrome.tabs.query({'active': true,'currentWindow':true},function(tab){
       var comparedValue = ""
       var lowPrice = ""
       var tradedAmount = ""
+
+      
       
       for(var i = 0; i < 9; i++){
         if (jsondata[i].date == response.date){
@@ -50,5 +52,6 @@ chrome.tabs.query({'active': true,'currentWindow':true},function(tab){
       document.getElementById("lowPrice").innerHTML = lowPrice.toLocaleString()
       document.getElementById("tradedAmount").innerHTML = tradedAmount.toLocaleString()
       document.getElementById("comparedValue").innerHTML = comparedValue.toLocaleString()
+      document.getElementById("chart").src = "https://ssl.pstatic.net/imgfinance/chart/item/candle/day/"+compCode+".png?sidcode=1574413931788"
     });
   });
